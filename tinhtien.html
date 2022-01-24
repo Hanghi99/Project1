@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tính tiền</title>
+</head>
+<body onload='tinhtien()'>
+    <div class="top">
+         <div class="slider">
+             <img src="anh/abc.jpg" alt="#" style="width:100%;height:500px;">
+         </div>
+         <div class="menu">
+             <ul>
+                 <li><a href="duan.html">Menu</a></li>
+                 <li><a href="#">Cart</a></li>
+                 <li><a href="#">Info</a></li>
+             </ul>
+         </div>
+    </div>
+    <div class="main">
+        <div class="display_1" id='display_1'>
+            <table  style='margin-left: 30%; border: 1px solid #ccc!important'>
+                <thead></thead>
+                <tr>
+                    <td style='width:150px' > <b>STT</b></td>
+                    <td style='width:150px'> <b>Tên sản phẩm </b></td>
+                    <td style='width:150px'> <b>Giá tiền</b></td>
+                </tr>
+                </thead>
+           
+               <tbody id="hienthi">
+
+               </tbody>
+                <tr>
+                    <td>Tổng tiền </td>
+                    <td id='tong_tien'></td>
+                </tr>
+            </table>
+            <input type="button" value="Thanh toán" onclick="thanhtoan()" style="margin-left: 500px; margin-top: 20px; padding: 10px 25px ; border-radius: 5px; background-color: #00FF7F; color: #fff
+            "  />
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+<script >
+    function tinhtien() {
+    let cart = localStorage.getItem("cart");
+    cart = JSON.parse(cart);
+    console.log(cart);  
+    let gia_tien = 0;
+    let total = 0;
+    let sanpham = '';
+    for (let i = 0; i < cart.length; i++) {
+        gia_tien = Number(cart[i][1])
+        total += gia_tien
+        sanpham += `
+        <tr>
+            <td>${i+1}</td>
+            <td>${cart[i][0]} </td>
+            <td>${cart[i][1]} </td>
+        </tr>
+        `
+    }
+    console.log(total)
+//     // localStorage.removeItem('cart');
+document.getElementById('hienthi').innerHTML = sanpham;
+document.getElementById('tong_tien').innerHTML = total ;
+}
+    function thanhtoan(){
+        alert('Cảm ơn bạn đã ghé thăm! ')
+            localStorage.removeItem('cart');
+            window.location.href = 'duan.html'
+    }
+</script>

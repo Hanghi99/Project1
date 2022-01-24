@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('anh/nen.jpg');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .form {
+            margin: 0 auto;
+            width: 300px;
+            min-height: 200px;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+
+        .banner {
+            width: 200px;
+            min-height: 150px;
+            margin: 0 auto;
+        }
+
+        .banner p {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 100px;
+            padding-top: 50px;
+
+        }
+
+        .input {
+            width: 200px;
+            min-height: 200px;
+            margin: 0 auto;
+        }
+
+        .input input {
+            width: 200px;
+            height: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        .btn1 {
+            display: inline-block;
+            padding: 0.6em 1.7em;
+            border: 0.1em solid rgb(206, 203, 203);
+            margin: 0 0.3em 0.3em 0;
+            border-radius: 0.12em;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            color: black;
+            text-align: center;
+            transition: all 0.2s;
+            background-color: rgb(206, 203, 203); 
+            margin-bottom: 60px ;
+            margin-left: 30%;
+        }
+
+        .btn1:hover {
+            color: #000000;
+            background-color:lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div class='banner'>
+            <p>
+                Đăng nhập
+            </p>
+        </div>
+        <div class="input">
+            <input type="text" name="ten_dang_nhap" placeholder="Email hoặc số điện thoại " id="username" /> <br>
+
+            <input type="password" name="mat_khau" placeholder="Password" id='password' /> <br> <br>
+        </div>
+        <div class="button">
+            <input type="button" value="Đăng nhập"  onclick="login()" id="result" class='btn1'>
+
+        </div>
+    </div>
+    
+</body>
+<script>
+
+
+    function login() {
+        let usernameValue = document.getElementById('username').value;
+        let passwordValue = document.getElementById('password').value;
+        let user_data = [];
+        // console.log(usernameValue);
+        // console.log(passwordValue);
+        user_data = [
+            ['nhi', '123123']
+        ]
+        console.log(user_data.indexOf('nhi'))
+        for (let i = 0; i < user_data.length; i++) {
+            if (user_data[i][0] == usernameValue && user_data[i][1] == passwordValue) {
+                alert('Đăng nhập thành công')
+                window.location.href = 'duan.html' 
+break; 
+            }
+            else { alert(' Không thực hiện được') }
+        }
+
+        // if(usernameValue == 'nhi' && passwordValue == '123123'){
+        //            }
+
+
+        //     document.getElementById("result").innerHTML = result; 
+    }
+</script>
+</html>
